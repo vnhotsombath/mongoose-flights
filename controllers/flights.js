@@ -13,20 +13,20 @@ function index(req, res) {
         if (err){
             res.send('You have an error trying to find the flights, check the terminal')
         }
-        res.render('flights/index.ejs', {
+        res.render('flights/index', {
             flights: allOfTheFlightsInTheDatabase
         });
     });
 }
 
 function newFlights(req,res) {
-    res.render('flights/new.ejs');
+    res.render('flights/new');
 }
 
 function create(req, res) {
-   const flight = newFlights(req.body);
+   let flight = newFlights(req.body);
    flight.save(function(err){
-    if (err) return res.render('flights/new.ejs');
+    if (err) return res.render('flights/new');
     res.redirect('/flights');
    });
 }

@@ -10,7 +10,7 @@
     <h1>All Flights</h1>
     <table id="list">
         <thead>
-            <tr>
+            <tr class="titles">
                 <th>Airline</th>
                 <th>Airport</th>
                 <th>FlightNo</th>
@@ -18,17 +18,17 @@
             </tr>
         </thead>
         <tbody>
-            <% flights.forEach(f) { %>
-                <tr>
-                    <td><% f.airline %> </td>
-                    <td><% f.airport %> </td>
-                    <td><% f.flightNo %> </td>
-                    <td><% f.departs %> </td>
-                    <td><a href="/flights/<% f. _id %>">Details</a></td>
+            <% flights.forEach(function(f) { %>
+                <tr class="flight-content">
+                    <td class="airline"><%= f.airline %> </td>
+                    <td class="airport"><%= f.airport %> </td>
+                    <td class="flight-no"><%= f.flightNo %></td>
+                    <td class="departs"><%= f.departs %> </td>
+                    <td class="details"><a href="/flights/<%= f._id %>">Details</a></td>
                 </tr>
-            <% }) %>
+            <% }); %>
         </tbody>
     </table>
-        <h1><a href="/flights/new">Add New Flight</a></h1>
+        <h3><a href="/flights/new">Add New Flight</a></h3>
 </body>
 </html>
