@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/flights');
 
 //this will fire when mongoose has established a connection with mongodb on port 27017
-mongoose.connect.on('connected', function(){
+mongoose.connection.on('connected', function(){
      // this function will fire once connected to mongodb
      console.log(`Connected to Mongodb at 27017`)
  })

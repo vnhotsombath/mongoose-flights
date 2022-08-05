@@ -15,8 +15,8 @@ function index(req, res) {
         }
         res.render('flights/index.ejs', {
             flights: allOfTheFlightsInTheDatabase
-        })
-    })
+        });
+    });
 }
 
 function newFlights(req,res) {
@@ -24,15 +24,15 @@ function newFlights(req,res) {
 }
 
 function create(req, res) {
-   const flight = newFlight(req.body);
+   const flight = newFlights(req.body);
    flight.save(function(err){
     if (err) return res.render('flights/new.ejs');
     res.redirect('/flights');
-   })
+   });
 }
 
 function show(req, res) {
     Flight.findById(req.params.id, function (err, flight){
         if (err) return res.direct('/flights')
-    })
+    });
 }

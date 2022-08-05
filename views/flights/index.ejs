@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>All Flights</h1>
-    <table>
+    <table id="list">
         <thead>
             <tr>
                 <th>Airline</th>
@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <% flights.forEach( f => { %>
+            <% flights.forEach(f) { %>
                 <tr>
                     <td><% f.airline %> </td>
                     <td><% f.airport %> </td>
