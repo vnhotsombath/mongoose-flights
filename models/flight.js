@@ -21,7 +21,10 @@ const flightSchema = new mongoose.Schema({
     },
     departs: {
         type: Date,
-        default: 'one year from date created',
+        default: function() {
+            return new Date(new Date().setFullYear(new Date().getFullYear() + 1));
+        }
+            //'one year from date created',
 
     }
 });

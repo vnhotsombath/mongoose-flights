@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
 
 // require the database file to establish the connection w/ db file
-require('.config/database')
+//require('.config/database');
 
 var app = express();
 
