@@ -46,3 +46,4 @@ const destinationSchema = new mongoose.Schema({
 
 // create or model, which will create the collection and return the object that can perform crud operations on that collection (typically use the model in controller files)
 module.exports = mongoose.model('Flight', flightSchema);
+module.exports = mongoose.model('Destination', destinationSchema)
