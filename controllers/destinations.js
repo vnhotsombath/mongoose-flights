@@ -1,7 +1,8 @@
-const Flight = require('../models/flight');
+const Destination = require('../models/destination');
 
 module.exports = {
-    create
+    create,
+    new: newDestination
 };
 
 function create(req, res) {
@@ -13,3 +14,12 @@ function create(req, res) {
         });
     });
 }
+
+function newDestination(req, res) {
+    Destination.find({}, function (err, destinations){
+        res.render('destinations/new', {
+            title: 'Add Destination', destinations,
+        })
+    })
+}
+
