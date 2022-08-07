@@ -10,8 +10,8 @@
 <body>
   <nav>
     <img src="https://i.imgur.com/IMHCY5n.png">
-    <a href="/flights">All Flights</a>
-    <a href="/flights/new">Add a Flight</a>
+    <a href="/flights" <%- title === 'All Flights' ? 'class="active"' : ''%> >All Flights</a>
+    <a href="/flights/new" <%- title === 'Add Flights' ? 'class="active"' : '' %> >Add a Flight</a>
   </nav>
   <main>
    

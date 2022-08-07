@@ -1,5 +1,9 @@
 <%- include('../partials/header')  %>
-      <table><thead>
+<main>
+
+<h1>Flight list</h1>
+      <table id="list">
+        <thead>
             <tr>
                 <th>Airline</th>
                 <th>Airport</th>
@@ -14,13 +18,12 @@
                     <td><%= f.airport %> </td>
                     <td><%= f.flightNo %></td>
                     <td><%= f.departs %> </td>
-                    <td><a href="/flights/<%= f.id %>">Details</a></td>
+                    <td><a href="/flights/<%= f._id %>">Details</a></td>
                 </tr>
             <% }); %>
         </tbody>
-    </table>
-    
 </body>
 </table>
+</main>
 
 <%- include('../partials/footer') %> 
