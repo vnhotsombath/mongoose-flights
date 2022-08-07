@@ -17,22 +17,22 @@ function index(req, res) {
             flights: allOfTheFlightsInTheDatabase
         });
     });
-}
+};
 
 function newFlights(req,res) {
     res.render('flights/new');
-}
+};
 
 function create(req, res) {
-   let flight = newFlights(req.body);
+   let flight = new Flights(req.body);
    flight.save(function(err){
     if (err) return res.render('flights/new');
     res.redirect('/flights');
    });
-}
+};
 
 function show(req, res) {
     Flight.findById(req.params.id, function (err, flight){
         if (err) return res.direct('/flights')
     });
-}
+};
