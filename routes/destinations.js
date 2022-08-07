@@ -4,4 +4,4 @@ const destinationsController = require('../controllers/destinations');
 
 router.post('/flights/:id/destinations', destinationsController.create);
 
-module.exports = router.all;
+module.exports = router;
