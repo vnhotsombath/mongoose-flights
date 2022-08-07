@@ -2,7 +2,7 @@
 <main> 
 <body>
     <h1>Flight Details</h1>
-    <section id="flight-details">
+    <section id='flight-details'>
         <label>Airline</label>
         <div><%= flight.airline %> </div>
         <label>Departure Airport</label>
@@ -13,38 +13,15 @@
         <div><%= flight.departs %> </div>
     </section>
     <br>
-    <h2>Destination</h2>
-        <section id ='flight-destinations'>
-            <tr>
-            <th>Destination Airport</th>
-            <th>Arrival</th>
-            </tr>
-    
-            <% flight.destinations.sort((a,b) => a.arrival - b.arrival).forEach(function (destination) { %>
-                <tr>
-                    <td><%= destination.airport %></td>
-                    <td><%= (destination.arrival).toString().slice(4. 16) %> </td>
-                    <td><%= (destination.arrival).toLocalString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true}) %> </td>
-                </tr> 
-                <% }) %> 
-        </tbody>
-    </table>
-    <br>
-    <form action='/flights/<%= flight._id %>' method='POST'>
-        <label>Destination Airport:
-            <select name='airport'>
-            <option value='AUS'>AUS</option>
-            <option value='DAL'>DAL</option>
-            <option value='LAX'>LAX</option>
-            <option value='SAN'>SAN</option>
-        </select>
-        </label><br>
-        <label>Arrival:
-            <input type='datetime-local' name='arrival'>
-        </label><br>
-        <button type='submit'> Add Destination Details</button>
-    </form>
-    
+    <h2>Destination Information</h2>
+    <section id='destination-details'>
+        <% if (flight.destination.length) { %>
+            <% flight.destination.forEach(function(destination) { %>
+                <label>Destination Airport</label>
+                <div><%= destination.airport %> </div>
+                <label>Arrival Date</label>
+                <div><%= destination.arrival %> </div>  
+    </section>
 </body>
 </main>
 
