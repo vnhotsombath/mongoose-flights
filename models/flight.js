@@ -1,8 +1,9 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
 
 // data creates the Schema that defines what the objects in mongoDb collection (flights) will all look like
-const flightSchema = new mongoose.Schema({
+const flightSchema = new Schema({
     airline: {
         type: String,
         enum: ['American', 'Delta', 'Southwest', 'United'],
@@ -24,12 +25,16 @@ const flightSchema = new mongoose.Schema({
         type: Date,
         default: function() {
             return new Date(new Date().setFullYear(new Date().getFullYear() + 1));
-        }
+        },
             //'one year from date created',
 
     },
+    destinations: [{type: Schema.Types.ObjectId, ref: 'Destination'}]
+}, {
+    timestamps: true,
+})
     
-});
+
 
 
 

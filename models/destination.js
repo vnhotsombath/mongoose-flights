@@ -1,18 +1,13 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+
 
 //create a destinationSchema 
-const destinationSchema = new mongoose.Schema({
-    airport: {
-        type: String,
-        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
-        default: 'n/a',
-    },
-    arrival: {
-        type: Date, 
-        default: function() {
-            return new Date(new Date().setFullYear(new Date().getFullYear() + 1));
-        }
-    }
-}); 
+const destinationSchema = new Schema({
+    destination: {type: String, required: true},
+}, {
+    timestamps:true
+})
 
 module.exports = mongoose.model('Destination', destinationSchema);

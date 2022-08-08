@@ -1,10 +1,21 @@
-const express = require('express');
 const Destination = require('../models/destination');
+const Flight = require('../models/flight');
 
 module.exports = {
     create,
     new: newDestination
 };
+
+
+function newDestination(req, res) {
+    Destination.find({}, function (err, destinations) {
+        res.render('destinations/new', {
+            title: 'Add Destination', 
+            destinations,
+        });
+    })
+}
+
 
 function create(req, res) {
     console.log(req.body)
@@ -26,11 +37,4 @@ function create(req, res) {
     // });
 }
 
-function newDestination(req, res) {
-    Destination.find({}, function (err, destinations){
-        res.render('destinations/new', {
-            title: 'Add Destination', destinations,
-        })
-    })
-}
 

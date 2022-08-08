@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 <main> 
     <h1>Flight Details</h1>
-    <section id='flight-details'>
+    <section>
         <label>Airline</label>
         <div><%= flight.airline %> </div>
         <label>Departure Airport</label>
@@ -13,9 +13,10 @@
     </section>
     <br>
     <h2>Destination Information</h2>
-    <section id='destination-details'>
+    <section>
       <ul>
-        <%- flight.destinations.map(destination => `<li>${destination.destination} </li>`).join('') %> 
+        <%- flight.destinations.map(destination => 
+        `<li>${destination.destination} </li>`).join('') %> 
       </ul>
       <form id="add-destinations" action="/flights/<%= flight._id%>/destinations" method="POST"></form> 
       <select name='destinationId'>
