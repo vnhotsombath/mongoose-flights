@@ -31,6 +31,18 @@
       </select>
       <button id='destination-button' type='submit'>Add to Destinations</button>
     </form>
+<br>
+<br>
+<h2>Tickets</h2>
+<form id='add-ticket-form' action='/flights<%= flight._id %>/tickets' method='POST'>
+  <label for='seat-select'>Seat:</label>
+  <input name='seat' required placeholder='A1-F99' pattern='[A-F][1-9]\d?'>
+  <label for='price-input'>Price:</label>
+  <input type='text' name='price' placeholder='$0' id='price-input' required>
+  <button id='btn-ticket' type='submit'>Add Ticket</button>
+  </form>
+
+</form>
 </main>
 
 <%- include('../partials/footer') %> 
