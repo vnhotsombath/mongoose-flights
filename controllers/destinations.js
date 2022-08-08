@@ -28,13 +28,7 @@ function create(req, res) {
             res.redirect('/destinations/new')
         }
     })
-    // Flight.findById(req.params.id, function (err, flight) {
-    //     console.log(flight);
-    //     flight.destination.push(req.body);
-    //     flight.save(function (err) {
-    //         res.redirect(`/flights/${flight._id}`);
-    //     });
-    // });
+
 }
 
 

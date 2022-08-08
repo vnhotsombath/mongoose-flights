@@ -10,22 +10,26 @@
         <div><%= flight.flightNo %> </div>
         <label>Departure Date</label>
         <div><%= flight.departs %> </div>
-    </section>
+  
     <br>
-    <h2>Destination Information</h2>
-    <section>
-      <ul>
-        <%- flight.destinations.map(destination => 
-        `<li>${destination.destination} </li>`).join('') %> 
-      </ul>
-      <form id="add-destinations" action="/flights/<%= flight._id%>/destinations" method="POST"></form> 
+    <div><h2>Destinations:</h2></div>
+    <ul>
+      <% flight.destinations.forEach(dest => { %>
+        <li>
+          <%= dest.airport %> 
+        </li> 
+        <% }) %> 
+    </ul>
+  </section>
+  <br>
+  <br>
+     <form id='add-destination-to-airport' action='/flights/<%= flight._id%>/destinations' method='post'>
       <select name='destinationId'>
-        <% destinations.map(function(destination) { %>
-            <option value='<%= destination._id %> '><%= destination.destination %> </option>
-            <% }) %>  
+        <% destinations.forEach(destination => { %>
+          <option value='<%= destination._id %>'><%= destination.airport %></option> 
+          <% }) %> 
       </select>
-      <button type='submit'>Add Destination</button>
-    </section>
+      <button id='destination-button' type='submit'>Add to Destinations</button>
     </form>
 </main>
 
