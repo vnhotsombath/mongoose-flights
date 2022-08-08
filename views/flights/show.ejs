@@ -1,6 +1,5 @@
 <%- include('../partials/header') %>
 <main> 
-<body>
     <h1>Flight Details</h1>
     <section id='flight-details'>
         <label>Airline</label>
@@ -15,18 +14,18 @@
     <br>
     <h2>Destination Information</h2>
     <section id='destination-details'>
-        <% if (flight.destination.length) { %>
-            <% flight.destination.forEach(function(destination) { %>
-                <label>Destination Airport</label>
-                <div><%= destination.airport %> </div>
-                <label>Arrival Date</label>
-                <div><%= destination.arrival %> </div>  
-                <% }); %>
-                <% } else { %>
-                    <h4>No Arrival Info</h4>
-                    <% } %>   
+      <ul>
+        <%- flight.destinations.map(destination => `<li>${destination.destination} </li>`).join('') %> 
+      </ul>
+      <form id="add-destinations" action="/flights/<%= flight._id%>/destinations" method="POST"></form> 
+      <select name='destinationId'>
+        <% destinations.map(function(destination) { %>
+            <option value='<%= destination._id %> '><%= destination.destination %> </option>
+            <% }) %>  
+      </select>
+      <button type='submit'>Add Destination</button>
     </section>
-</body>
+    </form>
 </main>
 
 <%- include('../partials/footer') %> 
