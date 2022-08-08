@@ -34,10 +34,8 @@ function create(req, res) {
 //    });
     const flight = new Flight(req.body)
     flight.save(function(err) {
-        if (err){
-            return res.redirect('/flights/new')
-        }
+        if (err) return res.redirect('/flights/new');
+        console.log(flight);
         res.redirect(`/flights/${flight._id}`)
-        console.log(req.body)
     });
 };
