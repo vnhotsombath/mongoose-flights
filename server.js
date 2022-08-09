@@ -10,7 +10,7 @@ require('./config/database');
 
 const indexRouter = require('./routes/index');
 const flightsRouter = require('./routes/flights');
-const destinationsRouter = require('./routes/destinations');
+const destinationRouter = require('./routes/destinations');
 const ticketsRouter = require('./routes/tickets');
 
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/flights', flightsRouter); // everything in this router will start with /flights
-app.use('/destinations', destinationsRouter);
+app.use('/', destinationRouter);
 app.use('/', ticketsRouter);
 
 // catch 404 and forward to error handler

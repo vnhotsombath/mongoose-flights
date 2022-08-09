@@ -4,7 +4,7 @@
 <form
       id="add-ticket-form"
       method="POST"
-      action="/flights/<%=flight._id%>/tickets"
+      action="/flights/<%=flight._id%>/tickets/new"
     >
 <label>
     Seat: <input name='seat' required patter='[A-F][1-9]\d?' />
@@ -15,3 +15,5 @@
     </br>
     <input type='submit' value='Add Ticket' />
 </form>
+
+<%- include('../partials/footer') %> 

@@ -4,4 +4,5 @@ const ticketsController = require('../controllers/tickets');
 
 router.post('/flights/:id/tickets', ticketsController.create);
 
+
 module.exports = router;
