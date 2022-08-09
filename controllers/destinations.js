@@ -3,20 +3,20 @@ const Destination = require('../models/destination');
 
 module.exports = {
     create,
-    new: newDestination
+    // new: newDestination
 };
 
 
-function newDestination(req, res) {
-    const error = Boolean(req.query.error);
-    Destination.find({}, function (err, destinations) {
-        res.render('destinations/new', {
-            title: 'Add Destination', 
-            destinations: destinations,
-            error: error,
-        });
-    })
-}
+// function newDestination(req, res) {
+//     const error = Boolean(req.query.error);
+//     Destination.find({}, function (err, destinations) {
+//         res.render('destinations/new', {
+//             title: 'Add Destination', 
+//             destinations: destinations,
+//             error: error,
+//         });
+//     })
+// }
 
 
 function create(req, res) {
