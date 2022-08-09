@@ -9,13 +9,23 @@ module.exports = {
 }
 
 function create(req,res) {
-    Flight.findById(req.params.id, function(err, flightDoc) {
-        req.body.flight = flightDoc._id;
-        Ticket.create(req.body, function (err, ticket) {
-        if(err) {
-            console.log('There is an error')
-        }
-            res.redirect(`/flights/${flightDoc._id}`);
-        });
-    });
+    Ticket.create(req.body, function(err, ticket){
+        res.redirect('/flights');
+    })
+    // Flight.findById(req.params.id, function(err, flight) {
+    //     flight.tickets.push(req.body,flightId)
+    //     flight.save(function(err){
+    //         res.redirect(`/flights/${flight._id}`)
+    //     });
+    // });
+
+
+    //     req.body.flight = flight._id;
+    //     Ticket.create(req.body, function (err, ticket) {
+    //     if(err) {
+    //         //console.log('There is an error')
+    //     }
+    //         res.redirect(`/flights/${flight._id}`);
+    //     });
+    // });
 }
