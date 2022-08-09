@@ -25,43 +25,55 @@
         <% } %>
       </br>
     </br>
-
-</br>
-        <div>Destinations:</div>
-    </br>
-            <% if (flight.destinations.length) { %>
-            <%flight.destinations.forEach(function(f){ %>
-              <div class="destination-info">Airport: <%=f.airport%></div>
-              <div class="destination-info">Arrival: <%=f.arrival%></div>
+          
+    <div><h1>Destinations:</h1></div>
+      <% if (flight.destinations.length) { %>
+        <% flight.destinations.forEach(function(f) { %>  
+          <div class ='destination-info'>Airport: <%= f.airport %> </div>
+          <div class ='destination-info'>Arrival: <%= f.arrival %> </div>
           <% }); %>
-          <% } else { %>
-              <div> No destinations yet</div>
-              <%} %>
-
-    </br>
-    </section>
-    </br>
-      <h2>Add Destination</h2>
-      <form id="add-destination-form" method="POST" action="/flights/<%=flight._id%>/destinations">
-        <label
-        >Destination Airport:</br><select name="airport">
-          <option value="AUS">AUS</option>
-          <option value="DFW">DFW</option>
-          <option value="DEN">DEN</option>
-          <option value="LAX">LAX</option>
-          <option value="SAN">SAN</option>
-        </select> </label>
-        <label>Arrival:
-            <input
-          value="<%= localDate.slice(0, 16) %>"
-          type="datetime-local"
-          name="arrival" />
-        </label>
-        <input type="submit" value="Add Destination" />
-    </form>
-  </br>
+          <% } else { %> 
+            <div>No destinations yet</div> 
+            <% } %> 
+  </section>
 </br>
-    <a href="/flights/<%=flight._id%>/tickets/new">New Ticket</a>
+</br>
+  </br>
+  <div>Destinations:</div>
+</br>
+      <% if (flight.destinations.length) { %>
+      <%flight.destinations.forEach(function(f){ %>
+        <div class="destination-info">Airport: <%=f.airport%></div>
+        <div class="destination-info">Arrival: <%=f.arrival%></div>
+    <% }); %>
+    <% } else { %>
+        <div> No destinations yet</div>
+        <%} %>
+
+</br>
+</section>
+</br>
+<h2>Add Destination</h2>
+<form id="add-destination-form" method="POST" action="/flights/<%=flight._id%>/destinations">
+  <label
+  >Destination Airport:</br><select name="airport">
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select> </label>
+  <label>Arrival:
+      <input
+    value="<%= localDate.slice(0, 16) %>"
+    type="datetime-local"
+    name="arrival" />
+  </label>
+  <input type="submit" value="Add Destination" />
+</form>
+</br>
+</br>
+<a href="/flights/<%=flight._id%>/tickets/new">New Ticket</a>
 
 </main>
 
