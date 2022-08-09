@@ -49,17 +49,17 @@ function create(req, res) {
 function newFlight(req, res) {
     const newFlight = new Flight();
     // get the default date
-    const defaultDate = newFlight.departs;
-    let offset = defaultDate.getTimezoneOffset() * 60000;
+    const dt = newFlight.departs;
+    let offset = dt.getTimezoneOffset() * 60000;
     // this takes the default date, subtracts the offset and converts to ISO string
     // set value = 'localDate', and use slice(0,16) to get proper format
-    let localDate = new Date(defaultDate - offset).toISOString();
+    let localDate = new Date(dt - offset).toISOString();
     //render the date
     res.render('flights/new', { localDate });
 }
 
 function newTicket(req, res) {
-    res.send('new ticket function');
+    //res.send('new ticket function');
     Flight.findById(req.params.id, function(err, flight) {
         console.log(err);
         res.render('tickets/new', { flight });
