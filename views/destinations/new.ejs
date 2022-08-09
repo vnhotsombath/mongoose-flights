@@ -2,14 +2,14 @@
 
 <main>
     <h1><%= title %> </h1>
-    <p>Please first ensure that the destination is not in the dropdown</p>
+    <p>Please first ensure that the destination is not in the dropdown
     <select>
         <% destinations.forEach(function(destination) { %>
             <option><%= destination.airport %></option>
             <% }) %>  
-    </select>
+    </select></p>
     <form id='add-destination-form' action='/destinations' method='POST'>
-        <label for='airport-input'>Airport:</label>
+        <label for='airport-input'>Destination:</label>
         <input type='text' name='airport' id='airport-input'>
        <button id='add-destination-button' type='submit'>Add Destination</button>
         </form>
