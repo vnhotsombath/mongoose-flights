@@ -3,12 +3,6 @@ const Schema = mongoose.Schema
 
 
 // data creates the Schema that defines what the objects in mongoDb collection (flights) will all look like
-const ticketSchema = new Schema ({
-    seat: {type: String, match: /[A-F][1-9]\d?/},
-    price: {type: Number, min: 0},
-}, {
-    timestamps: true
-})
 
 const flightSchema = new Schema({
     airline: {
