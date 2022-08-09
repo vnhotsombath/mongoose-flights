@@ -5,6 +5,7 @@ module.exports = {
     index,
     new: newFlight,
     create,
+    createTicket,
     show,
     addDestination,
     
@@ -21,8 +22,9 @@ function show(req, res) {
 
             res.render('flights/show', {
                 title: 'Flight Details',
-                flight,
+                flight: flight,
                 destinations: destinations,
+                err: err,
             });
         });
     });
@@ -81,3 +83,14 @@ function addDestination(req,res) {
     })
 }
 
+function createTicket(req,res) {
+    Flight.findById(req.params.id, function(err, flight){
+        //req.body.flight= flight._id;
+        flight.tickets.push(req.body)
+        flight.save(function(err) {
+            res.redirect(`/flights/${flight._id}`)
+        })
+        //Ticket.create(rew.body, function (err, ticket) {
+        //    res.redirect(`/flights/${flight._id}`);
+        });
+    };

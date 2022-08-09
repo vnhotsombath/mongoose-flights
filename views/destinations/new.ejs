@@ -9,10 +9,14 @@
             <% }) %>  
     </select></p>
     <form id='add-destination-form' action='/destinations' method='POST'>
-        <label for='airport-input'>Destination:</label>
+        <label for='airport-input'>Airport:</label>
         <input type='text' name='airport' id='airport-input'>
        <button id='add-destination-button' type='submit'>Add Destination</button>
         </form>
+<% if (err) { %>
+     <p id='error-msg'> Please enter a valaid destination</p>
+     <% } %>
+     
 </main>
 
 <%- include('../partials/footer') %> 
