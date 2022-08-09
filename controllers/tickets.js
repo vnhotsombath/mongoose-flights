@@ -1,15 +1,17 @@
-const Ticket = require('../models/ticket');
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 
-module.export = {
+
+
+module.exports = {
     create,
 }
 
 function create(req,res) {
-    Flight.findById(req.params.id, function(err, flight){
-        req.body.flight= flight._id;
-        Ticket.create(rew.body, function (err, ticket) {
-            res.redirect(`/flights/${flight._id}`);
+    Flight.findById(req.params.id, function(err, flightDoc) {
+        req.body.flight = flightDoc._id;
+        Ticket.create(req.body, function (err, ticket) {
+            res.redirect(`/flights/${flightDoc._id}`);
         });
     });
 }

@@ -3,12 +3,21 @@ const Schema = mongoose.Schema
 
 
 // data creates the Schema that defines what the objects in mongoDb collection (flights) will all look like
-const ticketSchema = new Schema ({
-    seat: {type: String, match: /[A-F][1-9]\d?/},
-    price: {type: Number, min: 0},
-    flight: {type: Schema.Types.ObjectId,
-    ref: 'Flight',
-}, 
+// const ticketSchema = new Schema ({
+//     seat: {type: String, match: /[A-F][1-9]\d?/},
+//     price: {type: Number, min: 0},
+//     flight: {type: Schema.Types.ObjectId,
+//     ref: 'Flight',
+// }, 
+// });
+const destinationSchema = new Schema({
+    airport: {
+        type: String,
+        enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
+    }, 
+    arrival: {
+        type: Date,
+    },
 });
 
 const flightSchema = new Schema({
@@ -37,11 +46,13 @@ const flightSchema = new Schema({
             //'one year from date created',
 
     },
-    tickets: [ticketSchema],
-    destinations: [{type: Schema.Types.ObjectId, ref: 'Destination'}]
-}, {
-    timestamps: true,
-})
+    //tickets: [ticketSchema],
+    destinations: [destinationSchema],
+},
+    { 
+        timestamps: true,
+    }
+)
     
 
 
