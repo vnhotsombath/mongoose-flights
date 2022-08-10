@@ -4,5 +4,6 @@ const ticketsController = require('../controllers/tickets');
 
 router.post('/flights/:id/tickets', ticketsController.create);
 
+//router.post('/flights/:id/tickets', ticketsController.addToDetails);
 
 module.exports = router;

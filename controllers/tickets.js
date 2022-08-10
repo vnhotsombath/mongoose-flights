@@ -3,29 +3,39 @@ const Ticket = require('../models/ticket');
 
 
 
+
 module.exports = {
-    create
+    create,
+    //addToDetails,
     
 }
 
+
 function create(req,res) {
-    Ticket.create(req.body, function(err, ticket){
-        res.redirect('/flights');
-    })
-    // Flight.findById(req.params.id, function(err, flight) {
-    //     flight.tickets.push(req.body,flightId)
-    //     flight.save(function(err){
-    //         res.redirect(`/flights/${flight._id}`)
-    //     });
-    // });
+    console.log(req.params.id, '<--params ticket id');
+    console.log(req.body, '<--contents of the ticket');
+    // Flight.findById(req.params.id, function(err, flightDocument) {
+    //     flightDocument.tickets.push(req.body)
+    //     flightDocument.save(function(err){
+    //          res.redirect(`/flights/${req.params.id}`);
+    //      });
+    //  });
+    req.body.flight = req.params.id;
+     Ticket.create(req.body, function (err, ticket) {
+        if(err) {
+             console.log('There is an error')
+         }
+             res.redirect(`/flights/${req.params.id}`);
+         });
+     };
 
 
-    //     req.body.flight = flight._id;
-    //     Ticket.create(req.body, function (err, ticket) {
-    //     if(err) {
-    //         //console.log('There is an error')
-    //     }
-    //         res.redirect(`/flights/${flight._id}`);
-    //     });
-    // });
-}
+// function addToDetails(req, res){
+//     Flight.findById(req.params.id, function(err, flightDoc){
+//         flightDoc.ticket.push(req.body.ticketId);
+//         flightDoc.save(function(err){
+//             res.redirect(`/flights/${flightDoc._id}`)
+//         })
+//     })
+// }
+

@@ -44,7 +44,6 @@ function newTicket(req, res) {
         res.render('tickets/new', { flight });
     });
 }
-
 function show(req,res) {
     const newFlight = new Flight();
     // get the default date
